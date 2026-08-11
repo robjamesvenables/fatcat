@@ -177,6 +177,7 @@
   .tour-card{
     background:var(--cream-soft); border:1px solid var(--line); border-radius:18px; overflow:hidden;
     transition:transform .3s ease, box-shadow .3s ease; cursor:pointer;
+    display:flex; flex-direction:column; height:100%;
   }
   .tour-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
   .tour-img{
@@ -192,10 +193,10 @@
     color:var(--cream); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
     padding:6px 12px; border-radius:999px;
   }
-  .tour-body{ padding:22px; }
+  .tour-body{ padding:22px; display:flex; flex-direction:column; flex:1; }
   .tour-body h3{ font-size:18px; font-weight:800; margin-bottom:8px; }
   .tour-body p{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px; }
-  .tour-foot{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line); }
+  .tour-foot{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line); margin-top:auto; }
   .tour-price{ font-size:13px; color:var(--ink-soft); }
   .tour-price b{ font-size:16px; color:var(--ink); font-weight:800; }
   .tour-arrow{
