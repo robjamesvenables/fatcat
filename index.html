@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fat Cat Travel Bali — Bali Tours, Team Building & Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF9EE;
+    --cream-soft:#FFFDF8;
+    --ink:#2B2118;
+    --ink-soft:#6B5A48;
+    --orange:#F2691D;
+    --orange-deep:#D6541A;
+    --gold:#FFC845;
+    --teal:#1FA394;
+    --teal-deep:#0F7A6E;
+    --slate:#3A4750;
+    --slate-deep:#2A3138;
+    --line: rgba(43,33,24,0.10);
+    --shadow: 0 20px 60px -20px rgba(43,33,24,0.28);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--orange-deep); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--orange); display:inline-block; border-radius:2px;}
+
+  /* ===== Nav ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(15,122,110,0.90);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:all .35s ease;
+  }
+  header.scrolled{
+    background:rgba(15,122,110,0.98);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 8px 30px -18px rgba(15,122,110,0.4);
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:82px; }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .logo-icon-only{ height:44px; width:auto; display:block; }
+  .footer-icon-only{ height:38px; width:auto; display:block; }
+  .logo-text-block{ display:flex; flex-direction:column; line-height:1.1; }
+  .logo-fatcat{ font-weight:900; font-size:19px; letter-spacing:-0.01em; color:var(--cream-soft); }
+  .logo-travelbali{ font-weight:600; font-size:9.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-top:2px; }
+  .footer-row{ gap:12px; }
+  .footer-row .logo-fatcat{ font-size:16px; }
+  .footer-logo-wrap{ display:flex; align-items:center; gap:10px; }
+
+  .logo-img{ height:80px; width:auto; display:block; }
+  .footer-logo-img{ height:46px; width:auto; display:block; }
+  .logo svg{ width:42px; height:42px; }
+  .logo-text{ font-weight:900; font-size:19px; letter-spacing:-0.01em; line-height:1; color:var(--cream-soft); }
+  .logo-text span{ display:block; font-weight:600; font-size:9.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-top:3px; }
+  .nav-links{ display:flex; align-items:center; gap:38px; }
+  .nav-links a{ font-size:14.5px; font-weight:600; color:rgba(255,249,238,0.72); position:relative; padding:4px 0; transition:color .2s; }
+  .nav-links a:hover{ color:var(--cream-soft); }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--orange);
+    transition:width .25s ease; border-radius:2px;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-links a.active{ color:var(--cream-soft); }
+  .nav-links a.active::after{ width:100%; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--orange); color:#fff;
+    font-weight:700; font-size:14px; letter-spacing:.01em;
+    padding:12px 24px; border-radius:999px; border:none; cursor:pointer;
+    transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{ background:var(--orange-deep); transform:translateY(-2px); box-shadow:0 12px 24px -8px rgba(184,69,26,0.5); }
+  .btn-outline{
+    background:transparent; color:var(--ink); border:1.5px solid var(--ink);
+  }
+  .btn-outline:hover{ background:var(--ink); color:var(--cream); }
+
+  /* ===== Hero (home only) ===== */
+  .hero{
+    position:relative; min-height:92vh; display:flex; align-items:center;
+    padding:110px 0 60px; overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0; z-index:0; overflow:hidden;
+    background:var(--cream);
+  }
+  .hero-content{ position:relative; z-index:1; color:var(--ink); max-width:640px; background:rgba(255,253,248,0.9); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-radius:24px; padding:44px 48px; box-shadow:var(--shadow); }
+  .hero .eyebrow{ color:var(--orange-deep); }
+  .hero .eyebrow::before{ background:var(--orange); }
+  .hero h1{
+    font-size:clamp(42px, 6.2vw, 74px); font-weight:900; line-height:0.98; letter-spacing:-0.02em;
+    margin:22px 0 22px; color:var(--ink);
+  }
+  .hero h1 em{ font-style:normal; color:var(--ink); }
+  .hero p.lead{ font-size:18px; line-height:1.6; color:var(--ink-soft); max-width:520px; margin-bottom:36px; font-weight:400;}
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  .hero-stats{
+    position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); margin-top:64px; padding-top:28px;
+    border-top:1px solid var(--line); width:100%;
+  }
+  .stat{ display:flex; flex-direction:column; align-items:flex-start; }
+  .stat:nth-child(2){ align-items:center; }
+  .stat:last-child{ align-items:flex-end; }
+  .stat b{ font-size:28px; font-weight:800; color:var(--ink); line-height:1; display:block; }
+  .stat span{ font-size:12.5px; color:var(--ink-soft); font-weight:500; }
+
+  /* ===== Page banner (inner pages) ===== */
+  .page-banner{ background:var(--teal-deep); color:var(--cream-soft); padding:158px 0 64px; }
+  .page-banner .eyebrow{ color:var(--gold); }
+  .page-banner .eyebrow::before{ background:var(--gold); }
+  .page-banner h1{ font-size:clamp(34px,4.5vw,52px); font-weight:900; letter-spacing:-0.02em; margin:14px 0 12px; }
+  .page-banner p{ font-size:16px; color:rgba(247,241,228,0.68); max-width:580px; line-height:1.6; }
+
+  /* ===== Section shell ===== */
+  section{ padding:100px 0; position:relative; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(28px,3.2vw,40px); font-weight:900; letter-spacing:-0.015em; margin-top:16px; line-height:1.1;}
+  .section-head p{ font-size:16px; color:var(--ink-soft); margin-top:14px; line-height:1.65; max-width:520px; }
+  section.alt{ background:var(--teal-deep); color:var(--cream); }
+  section.alt .eyebrow{ color:var(--gold); }
+  section.alt .eyebrow::before{ background:var(--gold); }
+  section.alt .section-head h2{ color:var(--cream); }
+  section.alt .section-head p{ color:rgba(255,249,238,0.7); }
+
+  /* ===== Split teaser cards (home) ===== */
+  .split-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .split-card{
+    border-radius:20px; padding:40px; position:relative; overflow:hidden; min-height:260px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  }
+  .split-card.leisure{ background:linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%); color:#fff; }
+  .split-card.corporate{ background:linear-gradient(135deg, var(--slate) 0%, var(--slate-deep) 100%); color:var(--cream); }
+  .split-card .tag{ font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; opacity:.75; margin-bottom:10px; }
+  .split-card h3{ font-size:26px; font-weight:900; margin-bottom:10px; letter-spacing:-0.01em; }
+  .split-card p{ font-size:14.5px; line-height:1.6; opacity:.85; max-width:380px; margin-bottom:22px; }
+  .split-card .btn{ background:rgba(255,255,255,0.12); color:#fff; align-self:flex-start; }
+  .split-card .btn:hover{ background:rgba(255,255,255,0.24); transform:translateY(-2px); }
+
+  /* ===== About ===== */
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .about-img{ position:relative; }
+  .about-img img{ border-radius:18px; box-shadow:var(--shadow); aspect-ratio:3/2; object-fit:cover; object-position:center 40%; width:100%; }
+  .about-img-badge{
+    position:absolute; bottom:-24px; left:-24px; background:var(--teal-deep); color:var(--cream);
+    padding:20px 24px; border-radius:14px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:14px;
+  }
+  .about-img-badge b{ font-size:26px; color:var(--gold); font-weight:900; display:block; line-height:1;}
+  .about-img-badge span{ font-size:11.5px; color:rgba(255,249,238,0.7); font-weight:600; letter-spacing:.03em;}
+  .about-copy h2{ color:var(--ink); }
+  .about-copy p{ font-size:16px; line-height:1.75; color:var(--ink-soft); margin-bottom:18px; }
+  .about-list{ margin-top:24px; display:grid; gap:14px; }
+  .about-list li{ list-style:none; display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--ink); font-weight:500;}
+  .about-list svg{ flex-shrink:0; width:20px; height:20px; margin-top:1px; color:var(--orange); }
+
+  /* ===== Tour cards ===== */
+  .tour-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .tour-card{
+    background:var(--cream-soft); border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    transition:transform .3s ease, box-shadow .3s ease; cursor:pointer;
+  }
+  .tour-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .tour-img{
+    height:190px; position:relative;
+    background:linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .tour-img.alt1{ background:linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%); }
+  .tour-img.alt2{ background:linear-gradient(135deg, var(--gold) 0%, var(--orange-deep) 100%); }
+  .tour-img img{ width:100%; height:100%; object-fit:cover; }
+  .tour-tag{
+    position:absolute; top:14px; left:14px; background:rgba(43,33,24,0.55); backdrop-filter:blur(6px);
+    color:var(--cream); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    padding:6px 12px; border-radius:999px;
+  }
+  .tour-body{ padding:22px; }
+  .tour-body h3{ font-size:18px; font-weight:800; margin-bottom:8px; }
+  .tour-body p{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px; }
+  .tour-foot{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line); }
+  .tour-price{ font-size:13px; color:var(--ink-soft); }
+  .tour-price b{ font-size:16px; color:var(--ink); font-weight:800; }
+  .tour-arrow{
+    width:34px; height:34px; border-radius:999px; border:1.5px solid var(--ink); display:flex; align-items:center;
+    justify-content:center; transition:all .2s ease; flex-shrink:0;
+  }
+  .tour-card:hover .tour-arrow{ background:var(--orange); border-color:var(--orange); color:#fff; transform:rotate(45deg); }
+  .page-note{ font-size:13.5px; color:var(--ink-soft); margin-top:26px; }
+  .page-note a{ color:var(--orange-deep); font-weight:600; text-decoration:underline; }
+
+  /* ===== Team building cards ===== */
+  .tb-grid{ display:grid; gap:22px; }
+  .tb-card{ background:var(--cream-soft); border:1px solid var(--line); border-radius:18px; padding:26px 28px; }
+  .tb-top{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; }
+  .tb-top h3{ font-size:19px; font-weight:800; }
+  .tb-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+  .tb-pill{ font-size:12px; font-weight:700; padding:6px 12px; border-radius:999px; background:rgba(226,97,31,0.1); color:var(--orange-deep); }
+  .tb-pill.venue{ background:rgba(31,163,148,0.12); color:var(--teal-deep); }
+  .tb-price{ text-align:right; }
+  .tb-price b{ font-size:20px; font-weight:900; color:var(--ink); display:block; }
+  .tb-price span{ font-size:12px; color:var(--ink-soft); }
+  .tb-details{ margin-top:18px; border-top:1px solid var(--line); padding-top:14px; }
+  .tb-details summary{ cursor:pointer; font-size:13.5px; font-weight:700; color:var(--orange-deep); list-style:none; display:flex; align-items:center; gap:6px; }
+  .tb-details summary::-webkit-details-marker{ display:none; }
+  .tb-details summary::after{ content:"+"; font-size:16px; margin-left:2px; }
+  .tb-details[open] summary::after{ content:"–"; }
+  .tb-details-body{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:16px; }
+  .tb-col h5{ font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:10px; }
+  .tb-col ul{ list-style:none; display:grid; gap:7px; }
+  .tb-col li{ font-size:13.5px; color:var(--ink); line-height:1.5; }
+  .tb-timeline li{ display:flex; gap:10px; }
+  .tb-timeline .t{ font-weight:700; color:var(--orange-deep); flex-shrink:0; min-width:44px; }
+
+  /* ===== Gallery ===== */
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:140px; gap:16px; }
+  .gallery-tile{
+    border-radius:16px; background:linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,249,238,0.65);
+    font-size:12.5px; font-weight:600; letter-spacing:.02em;
+    border:1px dashed rgba(255,249,238,0.35);
+  }
+  .gallery-tile.alt{ background:linear-gradient(135deg, var(--slate) 0%, var(--slate-deep) 100%); }
+  .gallery-tile.tall{ grid-row:span 2; }
+  .gallery-tile:nth-child(1){ grid-column:span 2; }
+  .gallery-tile{ overflow:hidden; padding:0; }
+  .gallery-tile img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .gallery-tile:has(img){ border:none; }
+  .gallery-tile.has-photo{ border:none; }
+
+  /* ===== Contact/Booking ===== */
+  .contact-page{ background:var(--teal-deep); color:var(--cream); }
+  .contact-page .eyebrow{ color:var(--gold); }
+  .contact-page .eyebrow::before{ background:var(--gold); }
+  .contact-page .section-head h2{ color:var(--cream); }
+  .contact-page .section-head p{ color:rgba(255,249,238,0.65); }
+  .contact-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:56px; }
+  .form-card{ background:var(--cream-soft); border-radius:20px; padding:38px; box-shadow:var(--shadow); }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column:1/-1; }
+  .field label{ font-size:12.5px; font-weight:700; letter-spacing:.03em; color:var(--ink-soft); text-transform:uppercase; }
+  .field input, .field select, .field textarea{
+    border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:13px 14px; font-family:'Inter',sans-serif;
+    font-size:14.5px; color:var(--ink); outline:none; transition:border-color .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--orange); }
+  .form-card .btn{ width:100%; justify-content:center; margin-top:8px; background:var(--orange); color:#fff; }
+  .form-card .btn:hover{ background:var(--orange-deep); }
+  .contact-info{ display:flex; flex-direction:column; gap:26px; padding-top:4px; }
+  .info-item{ display:flex; gap:18px; align-items:flex-start; }
+  .info-icon{
+    width:46px; height:46px; border-radius:12px; background:rgba(226,97,31,0.15); border:1px solid rgba(226,97,31,0.35);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--orange);
+  }
+  .info-item h4{ font-size:15.5px; font-weight:700; margin-bottom:4px; }
+  .info-item p{ font-size:14.5px; color:rgba(255,249,238,0.65); line-height:1.55; }
+  .social-row{ display:flex; gap:12px; margin-top:8px; }
+  .social-row a{
+    width:42px; height:42px; border-radius:999px; border:1px solid rgba(247,241,228,0.25); display:flex;
+    align-items:center; justify-content:center; transition:all .2s ease;
+  }
+  .social-row a:hover{ background:var(--orange); border-color:var(--orange); }
+
+  /* ===== Footer ===== */
+  footer{ background:var(--teal-deep); color:rgba(255,249,238,0.75); padding:0; }
+  .footer-strip{ border-bottom:1px solid rgba(247,241,228,0.08); padding:44px 0; }
+  .footer-strip .wrap{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .footer-item{ display:flex; gap:14px; align-items:flex-start; }
+  .footer-item .info-icon{ width:38px; height:38px; }
+  .footer-item h5{ font-size:12px; font-weight:700; color:var(--cream); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  .footer-item p{ font-size:13.5px; line-height:1.5; }
+  .footer-row{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:13px; padding:24px 0; }
+  .footer-row .logo-text{ color:var(--cream); }
+
+  /* ===== WhatsApp float ===== */
+  .wa-float{ position:fixed; bottom:24px; right:24px; z-index:200; width:76px; height:76px; transition:transform .2s ease; }
+  .wa-float:hover{ transform:scale(1.06); }
+  .wa-bob{ position:relative; width:100%; height:100%; animation:wa-bob-y 2.4s ease-in-out infinite; }
+  @keyframes wa-bob-y{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-6px); } }
+  .wa-logo{ width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 14px 26px rgba(226,97,31,0.55)); }
+  .wa-tail-wag{ animation:wa-tail-updown 1s ease-in-out infinite; }
+  @keyframes wa-tail-updown{ 0%,100%{ transform:rotate(-10deg); } 50%{ transform:rotate(10deg); } }
+  .wa-badge{
+    position:absolute; top:-2px; left:-2px; width:22px; height:22px; border-radius:999px;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    border:2.5px solid var(--cream); box-shadow:0 3px 8px rgba(0,0,0,0.25);
+  }
+
+  @media (max-width: 860px){
+    nav.wrap{ gap:16px; }
+    .nav-links{ gap:18px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; }
+    .nav-links::-webkit-scrollbar{ display:none; }
+    .nav-links a{ white-space:nowrap; font-size:13.5px; }
+    .btn{ padding:10px 18px; font-size:13px; white-space:nowrap; }
+    .about-grid, .contact-grid{ grid-template-columns:1fr; gap:40px; }
+    .tour-grid, .split-grid{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:120px; }
+    .gallery-tile:nth-child(1){ grid-column:span 2; }
+    .hero-stats{ gap:32px; }
+    .form-row{ grid-template-columns:1fr; }
+    .tb-details-body{ grid-template-columns:1fr; gap:20px; }
+    .footer-strip .wrap{ grid-template-columns:1fr; gap:22px; }
+    section{ padding:70px 0; }
+    .page-banner{ padding:140px 0 48px; }
+  }
+  @media (max-width: 480px){
+    .logo-text span{ display:none; }
+    .nav-links{ gap:14px; }
+  }
+</style>
+</head>
+<body>
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="index.html" class="logo"><img class="logo-icon-only" src="images/img1.png"><span class="logo-text-block"><span class="logo-fatcat">Fat Cat</span><span class="logo-travelbali">Travel Bali</span></span></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="tours.html">Tours</a>
+      <a href="team-building.html">Team Building</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="btn">Book Now</a>
+  </nav>
+</header>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-content">
+    <div class="eyebrow">Bali-based DMC &middot; Since 2009</div>
+    <h1>Bali, an island<br><em>that stays with you.</em></h1>
+    <p class="lead">Tailor-made tours, private drivers, airport transfers and corporate team-building days across the island of the gods &mdash; planned by a local team who've spent 15+ years turning first-time nerves into "best trip ever."</p>
+    <div class="hero-actions">
+      <a href="tours.html" class="btn">View Tours</a>
+      <a href="team-building.html" class="btn btn-outline">View Corporate Packages</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>15+</b><span>Years in Bali tourism</span></div>
+      <div class="stat"><b style="color:var(--gold);">4.9&#9733;</b><span>Guest rating</span></div>
+      <div class="stat"><b>24/7</b><span>WhatsApp support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Two ways to explore</div>
+      <h2>Adventures for travellers. Experiences for teams.</h2>
+      <p>Whether it's two people chasing a Bromo sunrise or fifty colleagues on an outbound day, it's the same local team behind it.</p>
+    </div>
+    <div class="split-grid">
+      <div class="split-card leisure">
+        <div class="tag">For travellers</div>
+        <h3>Tours &amp; Private Trips</h3>
+        <p>Bromo sunrise trips, culture &amp; temple tours, airport transfers and car rental &mdash; tailor-made, not fixed packages.</p>
+        <a href="tours.html" class="btn">View tours</a>
+      </div>
+      <div class="split-card corporate">
+        <div class="tag">For companies</div>
+        <h3>Team Building &amp; Corporate</h3>
+        <p>Vespa safaris, CSR coral planting, watersports and VW jungle safaris &mdash; built for gatherings, incentives and outbound days.</p>
+        <a href="team-building.html" class="btn">View corporate packages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-img">
+      <img src="images/img2.jpg" alt="Kecak fire dance ceremony at sunset, Uluwatu, Bali">
+      <div class="about-img-badge"><b>15+</b><span>YEARS<br>EXPERIENCE</span></div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">Who we are</div>
+      <h2 style="font-size:34px;font-weight:900;margin:16px 0 20px;letter-spacing:-0.015em;">Local knowledge.<br>International standards.</h2>
+      <p>Fat Cat Travel Bali is a Bali-based travel company and DMC, driven by a passion for exploration and authentic experiences. We're not a call-centre &mdash; we're the same small team, on the ground, for every trip we plan.</p>
+      <p>From leisure escapes to cultural deep-dives, group travel and corporate outbound days, every itinerary is built around how you actually want to travel &mdash; with competitive rates and no drop in service.</p>
+      <ul class="about-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Private, licensed drivers &amp; vehicles</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tailor-made itineraries, not fixed packages</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Real humans on WhatsApp, day or night</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Guest moments</div>
+      <h2>The island, through their eyes</h2>
+      <p>Real trips, real guests &mdash; swap these for your own photos once you send them over.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile tall has-photo"><img src="images/img3.jpg" alt="Aerial view of Bali rice terraces"></div>
+      <div class="gallery-tile has-photo"><img src="images/img4.jpg" alt="Jungle waterfall in Bali"></div>
+      <div class="gallery-tile alt has-photo"><img src="images/img5.jpg" alt="Uluwatu cliffs and ocean, Bali"></div>
+      <div class="gallery-tile alt has-photo"><img src="images/img6.jpg" alt="Balinese temple gate carving, Bali"></div>
+      <div class="gallery-tile has-photo"><img src="images/img7.jpg" alt="Lempuyang gate with Mount Agung, Bali"></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-strip">
+    <div class="wrap">
+      <div class="footer-item">
+        <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><h5>Office</h5><p>Jl. Perum Pasraman Unud Blok D No. 22, Jimbaran, Bali</p></div>
+      </div>
+      <div class="footer-item">
+        <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div><h5>Phone / WhatsApp</h5><p>+62 878 5550 5583</p></div>
+      </div>
+      <div class="footer-item">
+        <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg></div>
+        <div><h5>Email</h5><p>admin@fatcat-balitravel.com</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-row">
+    <div class="footer-logo-wrap"><img class="footer-icon-only" src="images/img1.png"><span class="logo-text-block"><span class="logo-fatcat">Fat Cat</span><span class="logo-travelbali">Travel Bali</span></span></div>
+    <div class="social-row">
+      <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+    </div>
+    <div>© 2026 Fat Cat Travel Bali. All rights reserved.</div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/6287855505583" target="_blank" aria-label="Chat on WhatsApp">
+  <div class="wa-bob">
+    <img class="wa-logo" src="images/img8.png">
+    <div class="wa-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.48 1.32 4.94L2 22l5.29-1.39a9.86 9.86 0 004.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.72 14.05c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.61 2 1.11.99 2.04 1.3 2.33 1.45.29.15.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
+    </div>
+  </div>
+</a>
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+</script>
+</body>
+</html>
