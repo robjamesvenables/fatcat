@@ -61,7 +61,7 @@
   .logo-icon-only{ height:44px; width:auto; display:block; }
   .footer-icon-only{ height:38px; width:auto; display:block; }
   .logo-text-block{ display:flex; flex-direction:column; line-height:1.1; }
-  .logo-fatcat{ font-weight:900; font-size:19px; letter-spacing:-0.01em; color:var(--cream-soft); }
+  .logo-fatcat{ font-weight:900; font-size:19px; letter-spacing:-0.01em; color:var(--cream-soft); white-space:nowrap; }
   .logo-travelbali{ font-weight:600; font-size:9.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-top:2px; }
   .footer-row{ gap:12px; }
   .footer-row .logo-fatcat{ font-size:16px; }
@@ -305,7 +305,7 @@
     nav.wrap{ gap:16px; }
     .nav-links{ gap:18px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; }
     .nav-links::-webkit-scrollbar{ display:none; }
-    .nav-links a{ white-space:nowrap; font-size:13.5px; }
+    .nav-links a{ white-space:nowrap; font-size:13.5px; padding:14px 2px; }
     .btn{ padding:10px 18px; font-size:13px; white-space:nowrap; }
     .about-grid, .contact-grid{ grid-template-columns:1fr; gap:40px; }
     .tour-grid, .split-grid{ grid-template-columns:1fr; }
@@ -319,8 +319,12 @@
     .page-banner{ padding:140px 0 48px; }
   }
   @media (max-width: 480px){
-    .logo-text span{ display:none; }
+    .logo-travelbali{ display:none; }
     .nav-links{ gap:14px; }
+    .logo-fatcat{ font-size:16px; }
+    .logo-icon-only{ height:36px; }
+    nav.wrap{ gap:10px; }
+    .wa-float{ width:58px; height:58px; bottom:16px; right:16px; }
   }
 </style>
 </head>
