@@ -303,6 +303,9 @@
   }
 
   /* ===== Airport pricing menu ===== */
+#airport-pricing .modes{display:inline-flex;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px;margin-bottom:22px;gap:4px}
+#airport-pricing .mode{border:0;background:none;font:inherit;font-weight:700;font-size:14px;color:var(--ink-soft);padding:10px 22px;border-radius:999px;cursor:pointer;min-height:44px}
+#airport-pricing .mode.on{background:var(--ink);color:var(--cream)}
 #airport-pricing .picker{display:none;gap:10px;overflow-x:auto;padding:4px 2px 14px;margin:0 -2px 18px;scrollbar-width:none}
 #airport-pricing .picker::-webkit-scrollbar{display:none}
 #airport-pricing .chip{flex:0 0 auto;border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:12px 16px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;min-height:44px}
@@ -311,7 +314,7 @@
 #airport-pricing .chip.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
 #airport-pricing .chip.on small{color:rgba(255,249,238,.7)}
 #airport-pricing .card{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
-#airport-pricing .grid{display:grid;grid-template-columns:minmax(260px,1.5fr) repeat(5,minmax(0,1fr)) }
+#airport-pricing .grid{display:grid;grid-template-columns:minmax(260px,1.5fr) repeat(var(--cols,5),minmax(0,1fr)) }
 #airport-pricing .hrow{background:var(--cream-soft);border-bottom:1px solid var(--line)}
 #airport-pricing .vh{padding:22px 10px 18px;text-align:center;cursor:pointer;border:0;background:none;font:inherit;color:var(--ink);position:relative}
 #airport-pricing .vh svg{display:block;margin:0 auto 8px;color:var(--teal-deep)}
@@ -448,6 +451,7 @@
 </section>
 <section id="airport-pricing">
  <div class="wrap">
+  <div class="modes" id="modes"><button class="mode on" data-m="cars">Cars &amp; vans</button><button class="mode" data-m="bus">Buses (25&ndash;45 seats)</button></div>
   <div class="picker" id="picker"></div>
 
   <div class="card">
@@ -468,7 +472,7 @@
   </div>
 
   <div class="groups">
-   <div><b>Travelling with a big group?</b><p>Coasters and buses from 25 to 45 seats, plus full-day charters.</p></div>
+   <div><b>Travelling with a big group?</b><p>Need more than 19 seats? See the Buses tab, or ask about full-day charters.</p></div>
    <a class="btn" href="https://wa.me/6287855505583?text=Hi%20Fat%20Cat!%20I%27d%20like%20a%20group%20transport%20quote." target="_blank" rel="noopener">Ask for a group quote</a>
   </div>
  </div>
@@ -511,37 +515,47 @@
 </a>
 <script>
   (function(){
-const V=[
+const CARS=[
  {n:'Avanza / Xenia',s:'Up to 5 guests',t:'Best value',k:'car'},
  {n:'Innova Reborn',s:'Up to 5 guests',k:'car'},
  {n:'Innova Zenix',s:'Up to 5 guests',k:'car'},
  {n:'Hiace',s:'14 seats',k:'van'},
  {n:'ELF',s:'19 seats',k:'van'}];
+const BUS=[
+ {n:'Coaster',s:'25 seats',k:'bus'},
+ {n:'Medbus',s:'35 seats',k:'bus'},
+ {n:'Medbus',s:'40 seats',k:'bus'},
+ {n:'Big Bus',s:'45 seats',k:'bus'}];
 const R=[
- ['Kuta / Seminyak',2,[305,355,430,630,730]],
- ['Sanur / Nusa Dua / Canggu',2,[355,405,480,680,780]],
- ['Ubud / Tanah Lot',3,[505,555,880,930,1030]],
- ['Candidasa',6,[605,755,1030,1030,1130]],
- ['Lovina',8,[805,855,1130,1230,1330]],
- ['Pemuteran / Amed / Tulamben',10,[855,905,1230,1630,1730]]];
+ ['Kuta / Seminyak',2,[305,355,430,630,730],[975,1025,1275,1375]],
+ ['Sanur / Nusa Dua / Canggu',2,[355,405,480,680,780],[1025,1125,1325,1425]],
+ ['Ubud / Tanah Lot',3,[505,555,880,930,1030],[1225,1325,1475,1875]],
+ ['Candidasa',6,[605,755,1030,1030,1130],[1375,1475,1675,1975]],
+ ['Lovina',8,[805,855,1130,1230,1330],[1675,1875,2025,2375]],
+ ['Pemuteran / Amed / Tulamben',10,[855,905,1230,1630,1730],[1875,2075,2175,2575]]];
+let mode='cars';
 const ico={car:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-6h14l2 6v4H3z"/><circle cx="7.500" cy="17" r="1.500"/><circle cx="16.500" cy="17" r="1.500"/></svg>',
+ bus:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 11h18"/><circle cx="7.500" cy="20" r="1.500"/><circle cx="16.500" cy="20" r="1.500"/></svg>',
  van:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17V7h13l5 5v5z"/><path d="M15 7v5h5"/><circle cx="7" cy="17.500" r="1.500"/><circle cx="16" cy="17.500" r="1.500"/></svg>'};
 let sel=1;
 
 function render(){
+ const V=mode=='cars'?CARS:BUS; if(sel>=V.length) sel=0;
+ document.querySelector('#airport-pricing #grid').style.setProperty('--cols',V.length);
  let h='<div class="hrow lead" style="display:contents"><div class="lead hrow">Route</div>';
  V.forEach((v,i)=>h+=`<button class="vh hrow ${i==sel?'on':''}" data-i="${i}">${ico[v.k]}<b>${v.n}</b><small>${v.s}</small>${v.t?`<span class="tag">${v.t}</span>`:''}</button>`);
  h+='</div>';
  R.forEach((r,ri)=>{
   h+=`<div class="row"><div class="route"><span class="num">${ri+1}</span><div><h4><span class="from">Airport <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>${r[0]}</h4><p><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${r[1]} hours</p></div></div>`;
-  r[2].forEach((p,i)=>h+=`<div class="price ${i==sel?'on':''}"><small>IDR</small>${(p*1000).toLocaleString('en-US')}</div>`);
+  (mode=='cars'?r[2]:r[3]).forEach((p,i)=>h+=`<div class="price ${i==sel?'on':''}"><small>IDR</small>${(p*1000).toLocaleString('en-US')}</div>`);
   h+='</div>';
  });
  document.querySelector('#airport-pricing #grid').innerHTML=h;
  document.querySelector('#airport-pricing #picker').innerHTML=V.map((v,i)=>`<button class="chip ${i==sel?'on':''}" data-i="${i}"><b>${v.n}</b><small>${v.s}</small></button>`).join('');
- document.getElementById('waMain').href='https://wa.me/6287855505583?text='+encodeURIComponent(`Hi Fat Cat! I'd like an airport transfer in an ${V[sel].n}.`);
+ document.getElementById('waMain').href='https://wa.me/6287855505583?text='+encodeURIComponent(`Hi Fat Cat! I'd like an airport transfer in ${mode=='cars'?'an':'a'} ${V[sel].n}${mode=='bus'?' ('+V[sel].s+')':''}.`);
  document.querySelectorAll('#airport-pricing [data-i]').forEach(b=>b.onclick=()=>{sel=+b.dataset.i;render()});
 }
+document.querySelectorAll('#airport-pricing .mode').forEach(b=>b.onclick=()=>{mode=b.dataset.m;sel=mode=='cars'?1:0;document.querySelectorAll('#airport-pricing .mode').forEach(x=>x.classList.toggle('on',x==b));render()});
 render();
 })();
 </script>
