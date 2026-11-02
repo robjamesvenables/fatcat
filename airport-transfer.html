@@ -303,9 +303,10 @@
   }
 
   /* ===== Airport pricing menu ===== */
-#airport-pricing .modes{display:inline-flex;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px;margin-bottom:22px;gap:4px}
-#airport-pricing .mode{border:0;background:none;font:inherit;font-weight:700;font-size:14px;color:var(--ink-soft);padding:10px 22px;border-radius:999px;cursor:pointer;min-height:44px}
-#airport-pricing .mode.on{background:var(--ink);color:var(--cream)}
+#airport-pricing .pblock{margin-bottom:48px}
+#airport-pricing .ptitle{margin-bottom:18px}
+#airport-pricing .ptitle h3{font-size:clamp(22px,2.4vw,28px);font-weight:900;letter-spacing:-.01em}
+#airport-pricing .ptitle p{font-size:15px;color:var(--ink-soft);margin-top:6px}
 #airport-pricing .picker{display:none;gap:10px;overflow-x:auto;padding:4px 2px 14px;margin:0 -2px 18px;scrollbar-width:none}
 #airport-pricing .picker::-webkit-scrollbar{display:none}
 #airport-pricing .chip{flex:0 0 auto;border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:12px 16px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;min-height:44px}
@@ -451,16 +452,31 @@
 </section>
 <section id="airport-pricing">
  <div class="wrap">
-  <div class="modes" id="modes"><button class="mode on" data-m="cars">Cars &amp; vans</button><button class="mode" data-m="bus">Buses (25&ndash;45 seats)</button></div>
-  <div class="picker" id="picker"></div>
+  <div class="pblock" data-kind="cars">
+   <div class="ptitle"><h3>Cars &amp; vans</h3><p>Private car with driver, 1&ndash;19 guests.</p></div>
+   <div class="picker"></div>
+   <div class="card">
+    <div class="grid"></div>
+    <div class="foot">
+     <p>Prices in Indonesian Rupiah (IDR), per vehicle. Don't see your hotel? Message us and we'll quote it the same day.</p>
+     <a class="btn wa" href="#" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0012 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7a11.9 11.9 0 005.7 1.5h0c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.200-3.400-8.400zM12 21.800a9.900 9.900 0 01-5-1.400l-.4-.2-3.700 1 1-3.600-.2-.4A9.900 9.900 0 1112 21.800z"/></svg>
+      Book on WhatsApp</a>
+    </div>
+   </div>
+  </div>
 
-  <div class="card">
-   <div class="grid" id="grid"></div>
-   <div class="foot">
-    <p>Prices in Indonesian Rupiah (IDR), per vehicle. Don't see your hotel? Message us and we'll quote it the same day.</p>
-    <a class="btn" id="waMain" href="#" target="_blank" rel="noopener">
-     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0012 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7a11.9 11.9 0 005.7 1.5h0c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.200-3.400-8.400zM12 21.800a9.900 9.900 0 01-5-1.400l-.4-.2-3.700 1 1-3.600-.2-.4A9.900 9.900 0 1112 21.800z"/></svg>
-     Book on WhatsApp</a>
+  <div class="pblock" data-kind="bus">
+   <div class="ptitle"><h3>Buses</h3><p>Coaster and Medbus for groups of 20&ndash;45 guests.</p></div>
+   <div class="picker"></div>
+   <div class="card">
+    <div class="grid"></div>
+    <div class="foot">
+     <p>Prices in Indonesian Rupiah (IDR), per vehicle. Don't see your hotel? Message us and we'll quote it the same day.</p>
+     <a class="btn wa" href="#" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0012 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7a11.9 11.9 0 005.7 1.5h0c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.200-3.400-8.400zM12 21.800a9.900 9.900 0 01-5-1.400l-.4-.2-3.700 1 1-3.600-.2-.4A9.900 9.900 0 1112 21.800z"/></svg>
+      Book on WhatsApp</a>
+    </div>
    </div>
   </div>
 
@@ -472,7 +488,7 @@
   </div>
 
   <div class="groups">
-   <div><b>Travelling with a big group?</b><p>Need more than 19 seats? See the Buses tab, or ask about full-day charters.</p></div>
+   <div><b>Travelling with a big group?</b><p>Need more than one vehicle, or a full-day charter? Message us for a quote.</p></div>
    <a class="btn" href="https://wa.me/6287855505583?text=Hi%20Fat%20Cat!%20I%27d%20like%20a%20group%20transport%20quote." target="_blank" rel="noopener">Ask for a group quote</a>
   </div>
  </div>
@@ -533,15 +549,15 @@ const R=[
  ['Candidasa',6,[605,755,1030,1030,1130],[1375,1475,1675,1975]],
  ['Lovina',8,[805,855,1130,1230,1330],[1675,1875,2025,2375]],
  ['Pemuteran / Amed / Tulamben',10,[855,905,1230,1630,1730],[1875,2075,2175,2575]]];
-let mode='cars';
 const ico={car:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-6h14l2 6v4H3z"/><circle cx="7.500" cy="17" r="1.500"/><circle cx="16.500" cy="17" r="1.500"/></svg>',
  bus:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 11h18"/><circle cx="7.500" cy="20" r="1.500"/><circle cx="16.500" cy="20" r="1.500"/></svg>',
  van:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17V7h13l5 5v5z"/><path d="M15 7v5h5"/><circle cx="7" cy="17.500" r="1.500"/><circle cx="16" cy="17.500" r="1.500"/></svg>'};
-let sel=1;
 
+function build(root,mode){
+ const V=mode=='cars'?CARS:BUS; let sel=mode=='cars'?1:0;
+ const gridEl=root.querySelector('.grid'),pickEl=root.querySelector('.picker'),waEl=root.querySelector('.wa');
+ gridEl.style.setProperty('--cols',V.length);
 function render(){
- const V=mode=='cars'?CARS:BUS; if(sel>=V.length) sel=0;
- document.querySelector('#airport-pricing #grid').style.setProperty('--cols',V.length);
  let h='<div class="hrow lead" style="display:contents"><div class="lead hrow">Route</div>';
  V.forEach((v,i)=>h+=`<button class="vh hrow ${i==sel?'on':''}" data-i="${i}">${ico[v.k]}<b>${v.n}</b><small>${v.s}</small>${v.t?`<span class="tag">${v.t}</span>`:''}</button>`);
  h+='</div>';
@@ -550,13 +566,14 @@ function render(){
   (mode=='cars'?r[2]:r[3]).forEach((p,i)=>h+=`<div class="price ${i==sel?'on':''}"><small>IDR</small>${(p*1000).toLocaleString('en-US')}</div>`);
   h+='</div>';
  });
- document.querySelector('#airport-pricing #grid').innerHTML=h;
- document.querySelector('#airport-pricing #picker').innerHTML=V.map((v,i)=>`<button class="chip ${i==sel?'on':''}" data-i="${i}"><b>${v.n}</b><small>${v.s}</small></button>`).join('');
- document.getElementById('waMain').href='https://wa.me/6287855505583?text='+encodeURIComponent(`Hi Fat Cat! I'd like an airport transfer in ${mode=='cars'?'an':'a'} ${V[sel].n}${mode=='bus'?' ('+V[sel].s+')':''}.`);
- document.querySelectorAll('#airport-pricing [data-i]').forEach(b=>b.onclick=()=>{sel=+b.dataset.i;render()});
+ gridEl.innerHTML=h;
+ pickEl.innerHTML=V.map((v,i)=>`<button class="chip ${i==sel?'on':''}" data-i="${i}"><b>${v.n}</b><small>${v.s}</small></button>`).join('');
+ waEl.href='https://wa.me/6287855505583?text='+encodeURIComponent(`Hi Fat Cat! I'd like an airport transfer in ${mode=='cars'?'an':'a'} ${V[sel].n}${mode=='bus'?' ('+V[sel].s+')':''}.`);
+ root.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{sel=+b.dataset.i;render()});
 }
-document.querySelectorAll('#airport-pricing .mode').forEach(b=>b.onclick=()=>{mode=b.dataset.m;sel=mode=='cars'?1:0;document.querySelectorAll('#airport-pricing .mode').forEach(x=>x.classList.toggle('on',x==b));render()});
 render();
+}
+document.querySelectorAll('#airport-pricing .pblock').forEach(b=>build(b,b.dataset.kind));
 })();
 </script>
 <script>
