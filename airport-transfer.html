@@ -373,8 +373,11 @@
 #airport-pricing .row{display:grid;grid-template-columns:1fr auto;align-items:center;border-bottom:1px solid var(--line);padding:6px 0}
 #airport-pricing .row:last-child{border-bottom:0}
 #airport-pricing .row>div{border:0}
-#airport-pricing .route{padding:14px 16px 14px 18px}
-#airport-pricing .price.on{background:none;padding:14px 18px 14px 0;font-size:20px}
+#airport-pricing .route{padding:14px 8px 14px 14px;gap:12px;min-width:0}
+#airport-pricing .num{flex:0 0 32px;height:32px;border-radius:10px;font-size:13px}
+#airport-pricing .route h4{font-size:15px}
+#airport-pricing .price.on{background:none;padding:14px 14px 14px 0;font-size:19px;font-weight:900;flex-direction:column;align-items:flex-end;justify-content:center;line-height:1.1;white-space:nowrap}
+#airport-pricing .price.on small{display:block;margin:0 0 2px;font-size:11px;letter-spacing:.04em}
 #airport-pricing .book{display:none}
 #airport-pricing .perks{grid-template-columns:1fr 1fr}
 #airport-pricing .foot{padding:20px 18px}
