@@ -554,7 +554,7 @@ const ico={car:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stro
  van:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17V7h13l5 5v5z"/><path d="M15 7v5h5"/><circle cx="7" cy="17.500" r="1.500"/><circle cx="16" cy="17.500" r="1.500"/></svg>'};
 
 function build(root,mode){
- const V=mode=='cars'?CARS:BUS; let sel=mode=='cars'?1:0;
+ const V=mode=='cars'?CARS:BUS; let sel=0;
  const gridEl=root.querySelector('.grid'),pickEl=root.querySelector('.picker'),waEl=root.querySelector('.wa');
  gridEl.style.setProperty('--cols',V.length);
 function render(){
