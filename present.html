@@ -272,7 +272,7 @@ body.lock .wa-float{display:none}
 <body>
 <header id="hd"><div class="wrap"><nav>
  <a href="#top" class="logo"><img src="images/img1.png" alt="Fat Cat"><span class="lt"><b>Fat Cat</b><span>Travel Bali</span></span></a>
- <div class="links"><a href="#about">About</a><a href="#what">What we do</a><a href="#transfers">Transfers</a><a href="#programs">Programs</a><a href="#contact">Contact</a></div>
+ <div class="links"><a href="#programs">Programs</a><a href="#transfers">Transfers</a><a href="#how">How it works</a><a href="#about">About</a><a href="#contact">Contact</a></div>
  <a class="btn" href="https://wa.me/6287855505583" target="_blank" rel="noopener" data-i="wa">WhatsApp</a>
 </nav></div></header>
 
@@ -290,25 +290,13 @@ body.lock .wa-float{display:none}
  <div class="g"><b>Jimbaran</b><span>our office, a short drive from the airport</span></div>
 </div></div></div>
 
-<section id="about"><div class="wrap about">
- <div>
-  <div class="eyebrow">Who we are</div>
-  <h2 class="h2">A local team that runs the whole trip</h2>
-  <p class="lead">Fat Cat Travel Bali (PT. Fat Cat Travelindo) is a destination management company based in Jimbaran, Bali. We work with hotels, villas, companies and travellers who want a trip that is planned properly and just works on the day.</p>
-  <div class="pts">
-   <div class="pt"><i data-i="check"></i><div><b>Clear programs, clear prices</b><span>Every program has a written itinerary, an included list and a price, so there are no surprises.</span></div></div>
-   <div class="pt"><i data-i="shield"></i><div><b>The essentials are included</b><span>Our team building days include transport, lunch, a game master, sound system, photos and video, and insurance.</span></div></div>
-   <div class="pt"><i data-i="clock"></i><div><b>Quick to book</b><span>Message us on WhatsApp and we confirm the same day. Every trip can be tailored to your group.</span></div></div>
-  </div>
- </div>
- <div class="photo"><img src="images/img3.jpg" alt="Aerial view of Bali rice terraces"><div class="tag"><span data-i="pin"></span>Based in Jimbaran, Bali</div></div>
-</div></section>
-
-<section id="what" class="alt"><div class="wrap">
- <div class="eyebrow">What we do</div>
- <h2 class="h2">Five things we do well</h2>
- <p class="lead">Tap any one to see the programs and prices.</p>
- <div class="dogrid" id="dogrid"></div>
+<section id="programs"><div class="wrap">
+ <div class="eyebrow">Programs &amp; prices</div>
+ <h2 class="h2">Pick a program to see everything in it</h2>
+ <p class="lead">Itineraries, what is included and what is not, and prices. Tap a card to open it.</p>
+ <div class="chips" id="chips"></div>
+ <div class="pgrid" id="pgrid"></div>
+ <p class="note">Prices are in Indonesian Rupiah and are subject to season and third-party rates. Looking for transfers or car rental? <a href="/airport-transfer">See transfer prices</a>.</p>
 </div></section>
 
 <section id="transfers" class="tr"><div class="wrap">
@@ -322,16 +310,7 @@ body.lock .wa-float{display:none}
  <div class="foot"><p>Prices shown are for the airport run in a standard car. Hotels and villas: ask us about partner rates.</p><a class="btn" href="/airport-transfer">See all transfer prices</a><a class="btn dark" target="_blank" rel="noopener" href="https://wa.me/6287855505583?text=Hi%20Fat%20Cat!%20I%27d%20like%20to%20book%20an%20airport%20transfer.">Book a transfer</a></div>
 </div></section>
 
-<section id="programs"><div class="wrap">
- <div class="eyebrow">Programs &amp; prices</div>
- <h2 class="h2">Pick a program to see everything in it</h2>
- <p class="lead">Itineraries, what is included and what is not, and prices. Tap a card to open it.</p>
- <div class="chips" id="chips"></div>
- <div class="pgrid" id="pgrid"></div>
- <p class="note">Prices are in Indonesian Rupiah and are subject to season and third-party rates. Looking for transfers or car rental? <a href="/airport-transfer">See transfer prices</a>.</p>
-</div></section>
-
-<section id="how" style="padding-top:0"><div class="wrap">
+<section id="how"><div class="wrap">
  <div class="eyebrow">How it works</div>
  <h2 class="h2">From message to trip in three steps</h2>
  <div class="steps">
@@ -339,6 +318,20 @@ body.lock .wa-float{display:none}
   <div class="step"><div class="n">2</div><h3>Get a clear quote</h3><p>We reply with the program, what is included and the price, confirmed the same day.</p></div>
   <div class="step"><div class="n">3</div><h3>We run it end to end</h3><p>Transport, guides, game masters and documentation are handled by us on the day.</p></div>
  </div>
+</div></section>
+
+<section id="about" style="background:#fff"><div class="wrap about">
+ <div>
+  <div class="eyebrow">Who we are</div>
+  <h2 class="h2">A local team that runs the whole trip</h2>
+  <p class="lead">Fat Cat Travel Bali (PT. Fat Cat Travelindo) is a destination management company based in Jimbaran, Bali. We work with hotels, villas, companies and travellers who want a trip that is planned properly and just works on the day.</p>
+  <div class="pts">
+   <div class="pt"><i data-i="check"></i><div><b>Clear programs, clear prices</b><span>Every program has a written itinerary, an included list and a price, so there are no surprises.</span></div></div>
+   <div class="pt"><i data-i="shield"></i><div><b>The essentials are included</b><span>Our team building days include transport, lunch, a game master, sound system, photos and video, and insurance.</span></div></div>
+   <div class="pt"><i data-i="clock"></i><div><b>Quick to book</b><span>Message us on WhatsApp and we confirm the same day. Every trip can be tailored to your group.</span></div></div>
+  </div>
+ </div>
+ <div class="photo"><img src="images/img3.jpg" alt="Aerial view of Bali rice terraces"><div class="tag"><span data-i="pin"></span>Based in Jimbaran, Bali</div></div>
 </div></section>
 
 <section id="contact" class="contact"><div class="wrap">
@@ -392,8 +385,8 @@ const DO=[
  {t:'Group programs',d:'Five days across southern Bali, Bedugul and Ubud for groups: food, culture, nature and a team building day.',cat:'group',m:'<div class="media"><img src="images/img2.jpg" alt="Kecak dance at Uluwatu"></div>'},
  {t:'Golf packages',d:'Three days, two nights at The Trans Resort Bali with a round at New Kuta Golf, transfers and meals included.',cat:'golf',m:'<div class="media"><img src="images/golf-course.jpg" alt="New Kuta Golf course on the Bali clifftop"></div>'}
 ];
-$('#dogrid').innerHTML=DO.map((d,i)=>`<${d.href?'a href="'+d.href+'"':'button'} class="do" ${d.cat?'data-c="'+d.cat+'"':''}>${d.m}<div class="body"><h3>${d.t}</h3><p>${d.d}</p><span class="more">${d.href?'See transfer prices':'See programs'} ${ico('arrow')}</span></div></${d.href?'a':'button'}>`).join('');
-$('#dogrid').querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{cat=b.dataset.c;renderChips();renderGrid();$('#programs').scrollIntoView()});
+//$('#dogrid').innerHTML=DO.map((d,i)=>`<${d.href?'a href="'+d.href+'"':'button'} class="do" ${d.cat?'data-c="'+d.cat+'"':''}>${d.m}<div class="body"><h3>${d.t}</h3><p>${d.d}</p><span class="more">${d.href?'See transfer prices':'See programs'} ${ico('arrow')}</span></div></${d.href?'a':'button'}>`).join('');
+//$('#dogrid').querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{cat=b.dataset.c;renderChips();renderGrid();$('#programs').scrollIntoView()});
 
 
 const TR=[
