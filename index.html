@@ -7,10 +7,11 @@
 <link rel="canonical" href="https://fatcat-balitravel.com/">
 <meta property="og:title" content="Fat Cat Bali Travel">
 <meta property="og:description" content="Private tours, team building, Bromo trips, golf and airport transfers across Bali.">
-<meta property="og:image" content="https://fatcat-balitravel.com/images/img2.jpg">
+<meta property="og:image" content="https://fatcat-balitravel.com/images/og-logo.jpg">
 <title>Fat Cat Bali Travel | Private Tours, Team Building &amp; Airport Transfers in Bali</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-32.png" type="image/png">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +56,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px;ga
 nav .btn{padding:11px 22px;font-size:14px;min-height:44px}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 150px;color:#fff;background:#10201d url(images/img2.jpg) center/cover no-repeat}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 150px;color:#fff;background:#10201d url(images/og-logo.jpg) center/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,48,43,.92) 0%,rgba(9,48,43,.72) 45%,rgba(9,48,43,.15) 100%)}
 .hero .wrap{position:relative;width:100%}
 .hero .eyebrow{color:var(--gold)}.hero .eyebrow::before{background:var(--gold)}
@@ -388,7 +389,7 @@ const DO=[
  {t:'Transfers & car rental',d:'Airport transfers and cars with driver, from 5-guest cars to 45-seat buses, at fixed prices per vehicle.',href:'#transfers',m:'<div class="media"><img src="images/img24.jpg" alt="Private car with driver"></div>'},
  {t:'Team building & CSR',d:'Fun, hands-on days for companies: VW safari, Vespa rides, watersport, Bedugul and coral planting. Games hosted by a professional game master.',cat:'team',m:'<div class="media strip"><img src="images/img22.jpg" alt=""><img src="images/img18.jpg" alt=""><img src="images/img16.jpg" alt=""></div>'},
  {t:'Bromo private trips',d:'Midnight sunrise trips and 2-day, 1-night stays, by jeep, for 2 to 11 guests, from Surabaya or Malang.',cat:'bromo',m:'<div class="media"><img src="images/img26.jpg" alt="Mount Bromo at sunrise"></div>'},
- {t:'Group programs',d:'Five days across southern Bali, Bedugul and Ubud for groups: food, culture, nature and a team building day.',cat:'group',m:'<div class="media"><img src="images/img2.jpg" alt="Kecak dance at Uluwatu"></div>'},
+ {t:'Group programs',d:'Five days across southern Bali, Bedugul and Ubud for groups: food, culture, nature and a team building day.',cat:'group',m:'<div class="media"><img src="images/og-logo.jpg" alt="Kecak dance at Uluwatu"></div>'},
  {t:'Golf packages',d:'Three days, two nights at The Trans Resort Bali with a round at New Kuta Golf, transfers and meals included.',cat:'golf',m:'<div class="media"><img src="images/golf-course.jpg" alt="New Kuta Golf course on the Bali clifftop"></div>'}
 ];
 //$('#dogrid').innerHTML=DO.map((d,i)=>`<${d.href?'a href="'+d.href+'"':'button'} class="do" ${d.cat?'data-c="'+d.cat+'"':''}>${d.m}<div class="body"><h3>${d.t}</h3><p>${d.d}</p><span class="more">${d.href?'See transfer prices':'See programs'} ${ico('arrow')}</span></div></${d.href?'a':'button'}>`).join('');
